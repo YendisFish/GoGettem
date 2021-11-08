@@ -15,4 +15,6 @@ RUN dotnet publish "GoGettem.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN apt-get update
+RUN apt-get -y install python
 ENTRYPOINT ["dotnet", "GoGettem.dll"]

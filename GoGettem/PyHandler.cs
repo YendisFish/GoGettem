@@ -10,7 +10,7 @@ namespace GoGettem
     {
         public List<String> LinkList = new();
         
-        public static void RunScript(string SessionToken)
+        public static void RunScript(string SessionToken, string query)
         {
             Console.WriteLine("Reading Config File");
 
@@ -25,7 +25,7 @@ namespace GoGettem
                     Console.WriteLine("Tyring As Linux Machine");
                     ProcessStartInfo proc = new ProcessStartInfo();
                     proc.FileName = "/bin/bash";
-                    proc.Arguments = "python Scraper.py";
+                    proc.Arguments = "python Scraper.py " + query;
                 }
                 catch (Exception ex)
                 {
