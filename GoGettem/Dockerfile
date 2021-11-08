@@ -1,4 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
+RUN apt-get update
+RUN apt-get -y install python
 WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
@@ -15,6 +17,4 @@ RUN dotnet publish "GoGettem.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-RUN apt-get update
-RUN apt-get -y install python
 ENTRYPOINT ["dotnet", "GoGettem.dll"]
