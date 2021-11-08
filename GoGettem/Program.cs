@@ -4,9 +4,11 @@ namespace GoGettem
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("init");
+            
+            //Add logic
         }
     }
 }

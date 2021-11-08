@@ -1,13 +1,16 @@
-﻿namespace GoGettem
+﻿using System;
+
+namespace GoGettem
 {
     public class Socks
     {
-        public string SessionToken;
+        public static string SessionToken = null;
+        public static string Addr = null;
         
-        //Add logic
         public static void ConnectionHandler()
         {
-            
+            //vv ADD LOGIC BEFORE vv
+            SessionToken = new Guid().ToString();
         }
     }
 }
